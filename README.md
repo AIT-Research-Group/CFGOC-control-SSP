@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![MATLAB](https://img.shields.io/badge/MATLAB-R2023b%2B-blue)](https://www.mathworks.com/)
 
 # Fuzzy-Genetic Control System for Semi-Submersible Platform Dynamic Positioning
 
