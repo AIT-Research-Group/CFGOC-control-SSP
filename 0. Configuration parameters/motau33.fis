@@ -1,0 +1,49 @@
+[System]
+Name='motau33'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='e3'
+Range=[-0.03 0.03]
+NumMFs=3
+MF1='NE3':'trapmf',[-0.05 -0.03 -0.015 0]
+MF2='ZE3':'trimf',[-0.015 0 0.015]
+MF3='PO3':'trapmf',[0 0.015 0.03 0.031]
+
+[Input2]
+Name='de3/dt3'
+Range=[-0.002 0.002]
+NumMFs=3
+MF1='NS3':'trimf',[-0.002 -0.001 0]
+MF2='ZE3':'trimf',[-0.001 0 0.001]
+MF3='PS3':'trimf',[0 0.001 0.002]
+
+[Output1]
+Name='tau3'
+Range=[0 1]
+NumMFs=5
+MF1='NE3':'constant',[-3e-06]
+MF2='NS3':'constant',[-1.5e-06]
+MF3='ZE3':'constant',[0]
+MF4='PS3':'constant',[1.5e-06]
+MF5='PO3':'constant',[3e-06]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 4 (1) : 1
+3 1, 3 (1) : 1
+3 2, 4 (1) : 1
+3 3, 5 (1) : 1

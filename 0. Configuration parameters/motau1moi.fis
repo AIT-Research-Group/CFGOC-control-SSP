@@ -1,0 +1,59 @@
+[System]
+Name='motau1moi'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='e1'
+Range=[-10 10]
+NumMFs=5
+MF1='NE1':'trapmf',[-20 -10 -6 -3]
+MF2='ZE1':'trimf',[-3 0 3]
+MF3='PO1':'trapmf',[3 6 10 20]
+MF4='NS1':'trimf',[-6 -3 0]
+MF5='PS1':'trimf',[0 3 6]
+
+[Input2]
+Name='de1/dt1'
+Range=[-2 2]
+NumMFs=3
+MF1='NS1':'trimf',[-2 -1 0]
+MF2='ZE1':'trimf',[-1 0 1]
+MF3='PS1':'trimf',[0 1 2]
+
+[Output1]
+Name='tau1'
+Range=[0 1]
+NumMFs=7
+MF1='NE1':'constant',[-160000000]
+MF2='NS1':'constant',[-50000000]
+MF3='ZE1':'constant',[0]
+MF4='PS1':'constant',[50000000]
+MF5='PO1':'constant',[160000000]
+MF6='NSS1':'constant',[-100000000]
+MF7='PSS1':'constant',[100000000]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 6 (1) : 1
+1 3, 2 (1) : 1
+4 1, 6 (1) : 1
+4 2, 2 (1) : 1
+4 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 4 (1) : 1
+5 1, 3 (1) : 1
+5 2, 4 (1) : 1
+5 3, 7 (1) : 1
+3 1, 4 (1) : 1
+3 2, 7 (1) : 1
+3 3, 5 (1) : 1
