@@ -104,7 +104,7 @@ For issues, suggestions, or contributions, please open an issue or contact the p
 
 Click the image below to watch the real-time demonstration of the semi-submersible platform control system:
 
-[![Watch the demo](https://img.youtube.com/vi/e18lg5iSBCU/6.jpg)](https://www.youtube.com/watch?v=e18lg5iSBCU)
+[![Watch the demo](https://img.youtube.com/vi/e18lg5iSBCU/3.jpg)](https://www.youtube.com/watch?v=e18lg5iSBCU)
 ## 📄 License
 ---
 MIT License
