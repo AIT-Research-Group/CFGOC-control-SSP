@@ -1,54 +1,108 @@
-# Control-SSP-base-on-Fuzzy-Genetic-Controller
 
-# Description
+# Fuzzy-Genetic Control System for Semi-Submersible Platform Dynamic Positioning
 
-Đây là dự án điều khiển giàn khoan bán tiềm thủy dựa trên giải thuật Genetic kết hợp Fuzzy Logic. Mục tiêu chính là xây dựng và kiểm chứng các giải pháp điều khiển thích nghi cho giàn khoan bán tiềm thủy trong trường hợp mô phỏng và trên mô hình thực tế.
-# Mô hình giàn khoan
-Mô hình được thiết lập dựa trên giàn Stena Don Rig thực tế, từ đó:
-- Phân tích cấu trúc di chuyển của bán tiềm thủy.
+This project focuses on the control of a semi-submersible drilling platform using a hybrid approach that combines Genetic Algorithms with Fuzzy Logic. The primary objective is to develop and validate adaptive control strategies for the semi-submersible platform under both simulation conditions and physical experimental implementation.
+---
+## 🛠️ Platform Modeling
 
-- Xác định các chế độ làm việc khác nhau (định vị trí, di chuyển theo hành trình).
+The platform model is developed based on the real-world **Stena Don semi-submersible rig**, with the following key components:
 
-- Các yếu tố ảnh hưởng đến quá trình hoạt động.
+- Analysis of the motion structure and dynamic behavior of the semi-submersible system.  
+- Definition of different operational modes, including station-keeping and trajectory-following.  
+- Identification of key environmental and mechanical factors affecting system performance.  
+- Full system simulation in the **MATLAB/Simulink** environment to evaluate control effectiveness and dynamic stability.
+---
 
-- Mô phỏng toàn bộ hệ thống trên môi trường Matlab/Simulink để đánh giá hiệu suất và độ ổn định.
-# Giải pháp điều khiển
-Chúng tôi phát triển hai giải pháp chính:
-- Adaptive Fuzzy Controller đo sai số (hiệu giữa giá trị mong muốn và giá trị thực tế) cùng với tốc độ thay đổi của sai số, sau đó áp dụng các quy tắc mờ để tính ra tín hiệu điều khiển phù hợp.
-- CFGOC (Constrained Fuzzy Genetic Optimized Controller)	Tối ưu hóa hiệu năng & tuân thủ ràng buộc lực đẩy	Kết hợp Genetic để điều chỉnh tham số Fuzzy, xét đến giới hạn lực và góc quay chân vịt.
-# Mô hình thử nghiệm thực nghiệm
-Nhằm kiểm chứng tính hiệu quả của giải pháp, mô hình giàn khoan bán tiềm thuỷ được phát triển theo giàn Stena Don với tỉ lệ 1:100 so với kích thước thật Stena Don.
-Xây dựng hệ thống nhúng bao gồm:
-- Bộ điều khiển trung tâm (STM32F767).
-- Mạch drive cho động cơ cho 4 hệ động lực đẩy chân vịt.
-- Hệ động cảm biến Lidar thu thập vị trí và Compass thu thập hướng.
-- Hệ thống điều khiển và giám sát từ xa.
-# Yêu cầu 
-Cài đặt Matlab R2023b trở lên kèm Simulink
+## ⚙️ Control Methods
 
-Toolbox Fuzzy Logic
+### 1. Adaptive Fuzzy Controller (AFC)
+- Uses position error and its derivative as inputs.
+- Applies fuzzy inference rules to determine control action.
+- Enables real-time adaptation to system changes.
 
-Global Optimization.
-# Cài đặt & Hướng dẫn sử dụng
+### 2. Constrained Fuzzy Genetic Optimized Controller (CFGOC)
+- Utilizes a Genetic Algorithm (GA) to tune fuzzy membership functions.
+- Considers physical limitations of thrusters (force and azimuth angle).
+- Provides constrained yet optimized control performance.
 
-Mô phỏng: 
-- Chạy tập lệnh Parameter.m để khởi tạo thông số mô hình.
-- Thêm thư viện GNC vào máy 
-- Mở thư mục 2. Simulation -> DP_GA_DeltaM.slx để xem mô hình.
-- Nhấn run để tiến hành mô phỏng.
+---
 
-Thực nghiệm:
-- Chạy tập lệnh Parameter.m để khởi tạo thông số mô hình và giải thuật.
-- Mở thư mục 2. Simulation -> CFGOC_SSPUT02.slx để xem mô hình.
-- Nhấn build Load and Run để xây dựng chương trình và nạp xuống STM32F676.
+## 🖥 System Architecture
 
+### 🧪 Simulation Environment
+- Developed fully in **MATLAB/Simulink**.
+- Supports high-fidelity testing of control algorithms.
 
-# Cấu trúc thư mục
+### 🛠 Physical Testbed
+A 1:100 scale model of the Stena Don rig, equipped with:
 
-- 0. Configuration Parameter. chúa các file thiết lập hàm mờ, thông số khởi tạo mô hình
-- 1. Training CFGOC. chứa các file để mô phỏng giải pháp trên Simulink, script chạy mô phỏng, kết quả đầu ra mẫu.
-- 2. Experiment. chứa các file để xây dựng mã nhúng, sơ đồ mạch drive và hướng dẫn phần cứng.
-- 3. Result. các kết quả thực nghiệm bao gồm mô phỏng và thực nghiệm được tác lưu trữ trên một thứ mục trong cả 2 trường học thử và thực nghiệm. 
+- **Controller**: STM32F767 microcontroller
+- **Actuators**: Four azimuth thruster drivers
+- **Sensors**:
+  - LiDAR for position detection
+  - Compass (IMU) for heading estimation
+- **Monitoring**: Remote supervisory control station
 
+---
 
-Bản quyền thuộc về nhóm nghiên cứu AIT. Mọi thắc mắc hoặc đóng góp vui lòng mở Issue trên GitHub hoặc liên hệ tác giả.
+## 🧰 Requirements
+
+| Tool                  | Version      |
+|-----------------------|--------------|
+| MATLAB                | R2023b or newer |
+| Simulink              | Included     |
+| Fuzzy Logic Toolbox   | Required     |
+| Global Optimization Toolbox | Required |
+
+---
+
+## 🚀 Getting Started
+
+### ▶️ Simulation
+
+```matlab
+% Step 1: Initialize model
+run Parameter.m
+
+% Step 2: Add GNC toolbox to path
+
+% Step 3: Open and run model
+open('1.Simulation/DP_GA_DeltaM.slx')
+````
+
+### 🧪 Hardware Deployment
+
+```matlab
+% Step 1: Initialize hardware parameters
+run Parameter.m
+
+% Step 2: Open deployment model
+open('2.Experiment/CFGOC_SSPUT02.slx')
+
+% Step 3: Build and flash to STM32F767
+% Use "Build, Load & Run" in Simulink
+```
+
+---
+
+## 🗂 Directory Layout
+
+* **`0. Configuration Parameter/`**: Scripts for initializing fuzzy rules and system parameters
+* **`1. Simulation/`**: Models, simulation scripts, and sample results
+* **`2. Experiment/`**: Embedded code, hardware schematics, and STM32 setup
+* **`3. Results/`**: Data from both simulations and physical experiments
+
+---
+
+## 🤝 Contribution & Contact
+
+Maintained by the **AIT Research Group**.
+For issues, suggestions, or contributions, please open an issue or contact the project maintainer.
+
+---
+
+## 📄 License
+
+MIT License
+© 2025 AIT Research Group. All rights reserved.
+
