@@ -5,9 +5,9 @@ tic
 rng default
 
 FitnessFunction = @kur_multiobjective; % Function handle to the fitness function
-numberOfVariables = 4; % Number of decision variables
-lb = 1*ones(1,4); % Lower bound
-ub = 2000000000*ones(1,4); % Upper bound
+numberOfVariables = 3; % Number of decision variables
+lb = 1*ones(-10,-1,-1.6*10^8); % Lower bound
+ub = 200*ones(10,1,1.6*10^8); % Upper bound
 A = [10 0 0 0]; % No linear inequality constraints
 b = 100; % No linear inequality constraints
 Aeq = [0 0 0 0]; % No linear equality constraints
@@ -22,7 +22,7 @@ end
 %**************************************************************************
 function fitness=func(x)
 %only T
-assignin('base', 'Ta_p', [x(1) x(2) x(3) x(4)]);
+assignin('base', 'Ta_p', [x(1) x(2) x(3)]);
 
 %sim('Fuzzy_PSO',2)
 sim('DP_GAp',0.4);
