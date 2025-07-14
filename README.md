@@ -3,11 +3,11 @@
 
 # Fuzzy-Genetic Control System for Semi-Submersible Platform Dynamic Positioning
 
-This project focuses on the control of a semi-submersible drilling platform using a approach that combines Genetic Algorithms and Fuzzy Logic. The primary objective is to develop and validate adaptive control strategies for the semi-submersible platform under both simulation and experimental conditions.
+This project focuses on the control of a semi-submersible platform using a approach that combines Genetic Algorithms and Fuzzy Logic. The primary objective is to develop and validate adaptive control strategies for the semi-submersible platform in both simulation and experimental conditions.
 ---
 ## 🛠️ Dynamic Modeling
 
-The dynamic model is developed based on the  **Stena Don rig**, with the following key components:
+The dynamic model is developed based on the  **Stena Don rig**:
 
 - Analysis of the motion structure and dynamic behavior of the semi-submersible system.  
 - Definition of different operational modes, including dynamic position and trajectory following.  
