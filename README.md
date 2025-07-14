@@ -5,9 +5,9 @@
 
 This project focuses on the control of a semi-submersible drilling platform using a hybrid approach that combines Genetic Algorithms with Fuzzy Logic. The primary objective is to develop and validate adaptive control strategies for the semi-submersible platform under both simulation conditions and physical experimental implementation.
 ---
-## 🛠️ Platform Modeling
+## 🛠️ Dynamic Modeling
 
-The platform model is developed based on the real-world **Stena Don semi-submersible rig**, with the following key components:
+The dynamic model is developed based on the real-world **Stena Don semi-submersible rig**, with the following key components:
 
 - Analysis of the motion structure and dynamic behavior of the semi-submersible system.  
 - Definition of different operational modes, including station-keeping and trajectory-following.  
@@ -18,7 +18,7 @@ The platform model is developed based on the real-world **Stena Don semi-submers
 ## ⚙️ Control Methods
 
 ### 1. Adaptive Fuzzy Controller (AFC)
-- Uses position error and its derivative as inputs.
+- Uses position and velocity error are inputs.
 - Applies fuzzy inference rules to determine control action.
 - Enables real-time adaptation to system changes.
 
