@@ -3,15 +3,15 @@
 
 # Fuzzy-Genetic Control System for Semi-Submersible Platform Dynamic Positioning
 
-This project focuses on the control of a semi-submersible platform using a approach that combines Genetic Algorithms and Fuzzy Logic. The primary objective is to develop and validate adaptive control strategies for the semi-submersible platform in both simulation and experimental conditions.
+This project focuses on the control of a semi-submersible platform using an approach that combines Genetic Algorithms and Fuzzy Logic. The primary objective is to develop and validate adaptive control strategies for the semi-submersible platform in both simulation and experimental conditions.
 ---
 ## 🛠️ Dynamic Modeling
 
 The dynamic model is developed based on the  **Stena Don rig**:
 
-- Analysis of the motion structure and dynamic behavior of the semi-submersible system.  
+- Analysis of the motion structure and dynamic behaviour of the semi-submersible system.  
 - Definition of different operational modes, including dynamic position and trajectory following.  
-- Analysis of environmental and mechanical factors negative impact on system performance.  
+- Analysis of environmental and mechanical factors' negative impact on system performance.  
 - Simulation in the **MATLAB/Simulink** to evaluate control effectiveness and dynamic stability.
 ---
 
@@ -24,7 +24,7 @@ The dynamic model is developed based on the  **Stena Don rig**:
 
 ### 2. Constrained Fuzzy Genetic Optimized Controller (CFGOC)
 - Utilizes a Genetic Algorithm (GA) to tune fuzzy membership functions.
-- Considers physical limitations of thrusters (force and azimuth angle)to constrains.
+- Considers physical limitations of thrusters (force and azimuth angle) as constraints.
 - Provides constrained yet optimized control performance.
 
 ---
@@ -87,7 +87,7 @@ open('2.Experiment/CFGOC_SSPUT02.slx')
 
 % Step 4: Build and Load to STM32F767
 % Using "Build, Load & Run" in Simulink
-% Using  "Monitor & Ture" to obserers real time
+% Using  "Monitor & Ture" to observe real time
 ```
 
 ---
