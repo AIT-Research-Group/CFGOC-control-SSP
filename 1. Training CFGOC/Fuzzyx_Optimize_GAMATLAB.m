@@ -24,10 +24,10 @@ function fitness=func(x)
 %only T
 assignin('base', 'Ta_x', [x(1) x(2) x(3)]);
 
-%sim('Fuzzy_PSO',2)
 sim('DP_GAx',0.4);
 % Step = stepinfo(Sys_Out.Data,Sys_Out.Time);
 % fitness=(Step.Peak-1)+Step.Overshoot;
 % fitness=max(Sys_Out1.Data);
 fitness= 0.0001*max((Sysh_Out1.Data(end)))% + 0.0001*max((Sysh_Out2.Data(end))); %ITAE + IAU
 end
+
